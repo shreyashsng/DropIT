@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 250, 250, 250;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom right,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  min-height: 100vh;
+}
+
+.upload-dropzone {
+  @apply border-2 border-dashed rounded-xl p-8 transition-all duration-200 ease-in-out;
+}
+
+.upload-dropzone.active {
+  @apply border-blue-500 bg-blue-50 dark:bg-blue-900/20;
+}
+
+.upload-dropzone.inactive {
+  @apply border-gray-300 dark:border-gray-600 cursor-pointer hover:border-blue-400 dark:hover:border-blue-500;
+}
+
+.upload-dropzone.uploading {
+  @apply pointer-events-none opacity-50;
+} 
